@@ -12,7 +12,7 @@ pipeline {
         }
        stage ("Clone repo") {
             steps {
-                sh "git clone https://github.com/walid090/back-spring.git"
+                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/walid090/back-spring.git']])
             }
         }
         stage ("Build Jar") {
