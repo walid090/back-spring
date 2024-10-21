@@ -10,11 +10,10 @@ pipeline {
                 sh "docker system prune -a --volumes -f"
             }
         }
-        stage ("Checkout Source Code") {
+       stage ("Clone repo") {
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'pipeline-spring-mysql-credits', url: 'https://github.com/khemiri22/pipeline-spring-mysql.git']])
+                sh "git clone https://github.com/walid090/ex1SpringDocker.git"
             }
-            
         }
         stage ("Build Jar") {
             steps {
